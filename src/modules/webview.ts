@@ -4,6 +4,7 @@ import * as path from 'path';
 import {getDownloadLink, getFileDownloadLink} from '../GitListDir';
 
 const request = require('request');
+const { exec } = require("child_process");
 
 
 import * as fs from 'fs-extra';
@@ -343,6 +344,8 @@ export class Webview implements Interfaces.IBuilderModule {
         if(fs.existsSync(path.join(myappFolder, 'dist'))){
             fs.removeSync(path.join(myappFolder, 'dist'))
         }
+
+        exec(`find ${myappFolder} -name node_modules -type d -exec rm -rf {} +`)
 
         // adding permissions
         let permissions = [];
