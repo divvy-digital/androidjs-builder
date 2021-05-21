@@ -102,25 +102,6 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         keys: env_manifist.application
     });
 
-    let receiver = new Node({
-        name: 'receiver',
-        keys: {
-            "android:name": "com.android.js.webview.BootUpReceiver",
-            "android:enabled": "true",
-            "android:exported": "true",
-            "android:permission": "android.permission.RECEIVE_BOOT_COMPLETED"
-        }
-    })
-
-    application.children.push(receiver)
-
-    const intentFilter = new Node({ name: 'intent-filter' })
-    intentFilter.children.push(new Node({ name: 'action', keys: { "android:name": "android.intent.action.BOOT_COMPLETED" } }))
-    intentFilter.children.push(new Node({ name: 'action', keys: { "android:name": "android.intent.action.QUICKBOOT_POWERON" } }))
-    intentFilter.children.push(new Node({ name: 'category', keys: { "android:name": "android.intent.category.DEFAULT" } }))
-
-    receiver.children.push(intentFilter);
-
     let activity = new Node({
         name: 'activity',
         keys: env_manifist.activity
@@ -155,9 +136,7 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         if (env.builder.debug) console.log('Adding:', permissions[i]);
     }
 
-    manifest.children.push(createPermission('android.permission.RECEIVE_BOOT_COMPLETED'));
-
-    for (const i in deep_links) {
+    for(const i in deep_links){
         let deepLink = createDeepLink(deep_links[i]);
         activity.children.push(deepLink)
     }
