@@ -13,7 +13,7 @@ import {ReactApp} from "./modules/react";
 
 import {symlink} from "fs";
 
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 const project: Interfaces.IProject = {
     dir: process.cwd(),
@@ -78,7 +78,7 @@ commander
             env.builder.debug = args.debug ? true : false;
 
 
-           
+
 
             // load module
             if(context.hasOwnProperty(APPTYPE)){

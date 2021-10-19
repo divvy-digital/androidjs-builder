@@ -28,7 +28,7 @@ const inquirer = __importStar(require("inquirer"));
 const webview_1 = require("./modules/webview");
 const static_app_1 = require("./modules/static_app");
 const react_1 = require("./modules/react");
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 const project = {
     dir: process.cwd(),
     name: 'myapp',
