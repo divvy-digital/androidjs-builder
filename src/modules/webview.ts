@@ -92,7 +92,7 @@ export class Webview implements Interfaces.IBuilderModule {
 
         console.log("--release=", env.release)
         this.manifist.application["android:debuggable"] = (!env.release).toString()
-        
+
 
         // check if sdk folder exist
         // if (this.env.builder.debug) {
@@ -345,7 +345,8 @@ export class Webview implements Interfaces.IBuilderModule {
             fs.removeSync(path.join(myappFolder, 'dist'))
         }
 
-        exec(`find ${myappFolder} -name node_modules -type d -exec rm -rf {} +`)
+        exec(`find ${myappFolder} -not -path '${myappFolder}/assets/node_modules' -name node_modules -type d -exec rm -rf {} +`)
+        exec(`find ${myappFolder} -name .git -type d -exec rm -rf {} +`)
 
         // adding permissions
         let permissions = [];
