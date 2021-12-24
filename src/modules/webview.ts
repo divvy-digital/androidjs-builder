@@ -35,7 +35,7 @@ export class Webview implements Interfaces.IBuilderModule {
     env: Interfaces.IEnv;
     user: string = 'android-js';
     sdk: Interfaces.IGithubRepoLink = {
-        user: 'android-js',
+        user: 'wkevina',
         repo: 'androidjs-sdk'
     };
     example: Interfaces.IGithubRepoLink = {
@@ -43,13 +43,13 @@ export class Webview implements Interfaces.IBuilderModule {
         repo: 'webview-app-template'
     };
     apk_tool: Interfaces.GithubFileLink = {
-        user: 'android-js',
+        user: 'wkevina',
         repo: 'androidjs-builder',
         dir: 'build_tools',
         file: 'apktool.jar'
     };
     apk_signer: Interfaces.GithubFileLink = {
-        user: 'android-js',
+        user: 'wkevina',
         repo: 'androidjs-builder',
         dir: 'build_tools',
         file: 'uber-apk-signer-1.0.0.jar'
