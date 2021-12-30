@@ -45,7 +45,7 @@ class Webview {
     constructor() {
         this.user = 'android-js';
         this.sdk = {
-            user: 'wkevina',
+            user: 'divvy-digital',
             repo: 'androidjs-sdk'
         };
         this.example = {
@@ -53,13 +53,13 @@ class Webview {
             repo: 'webview-app-template'
         };
         this.apk_tool = {
-            user: 'wkevina',
+            user: 'divvy-digital',
             repo: 'androidjs-builder',
             dir: 'build_tools',
             file: 'apktool.jar'
         };
         this.apk_signer = {
-            user: 'wkevina',
+            user: 'divvy-digital',
             repo: 'androidjs-builder',
             dir: 'build_tools',
             file: 'uber-apk-signer-1.0.0.jar'
