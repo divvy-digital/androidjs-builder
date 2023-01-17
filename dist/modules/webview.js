@@ -335,7 +335,17 @@ class Webview {
         // copy assets
         try {
             console.log('copying assets ...');
-            fs.copySync(this.env.project.dir, myappFolder);
+            fs.copySync(this.env.project.dir, myappFolder, {
+                filter: (src) => {
+                    if (src.indexOf('assets/node_modules') !== -1) {
+                        return true;
+                    }
+                    if (src.indexOf('node_modules') !== -1 || src.indexOf('.git') !== -1) {
+                        return false;
+                    }
+                    return true;
+                }
+            });
         }
         catch (e) {
             console.log(`failed to copy assets:`, e);
